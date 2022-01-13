@@ -3,9 +3,9 @@ must include constructor with properties:
 id, token, wins */
 
 class Player {
-    constructor() {
+    constructor(token) {
         this.id = Date.now();
-        this.token = //[]?, emoji?
+        this.token = token;//emoji? 
         this.wins = [];
     }
 }
