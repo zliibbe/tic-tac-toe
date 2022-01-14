@@ -1,6 +1,7 @@
 /*
 contains all DOM-realted JS
  */
+//Global Variable
 var game = new Game;
 
 //querySelectors
@@ -10,10 +11,10 @@ var game = new Game;
 //eventListeners
 
 //functions/Game Logic
-function() {
-    game.changePlayersTurn;
-    game.thisOtherfunction;
-}
+// function() {
+//     game.changePlayersTurn;
+//     game.thisOtherfunction;
+// }
 
 
 
