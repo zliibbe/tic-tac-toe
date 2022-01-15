@@ -32,15 +32,12 @@ class Game {
     placeToken(token, placement) {
         if (token === this.playersTurn && placement){
             if (this.gameboard[placement] === ''){
-                console.log(this.g)
                 this.gameboard[placement] = token;
                 console.log(`${token} placed in ${placement}`);
                 this.checkWinConditions(token);
-                // this.checkCatGame()
                 this.changePlayersTurn(token);
             } else {
-                //else>placement is already filled with X or O or ...
-             console.log('This spot is taken. Please select a different spot.');
+                console.log('This spot is taken. Please select a different spot.');
             }
         } else {
             console.log(`It's not ${token}'s turn!`);
@@ -52,18 +49,11 @@ class Game {
         this.gameboard.B1 != '' && this.gameboard.B2 != '' && this.gameboard.B3 != '' && 
         this.gameboard.C1 != '' && this.gameboard.C2 != '' && this.gameboard.C3 != '') {
             console.log('It\'s a draw!😼')
-            //if checkWinConditions returns `Sorry, ${token} is not a winner yet...`
         }
-            //V This can be done using two functions checkCatGame() with placeToken
-            /*-check if conditions for CatGame are met
-              -if all spaces are filled, but checkWinConditions does not find winner Then =>
-              -display 😼; else keep playing game
-             */
     }
 
     checkWinConditions(token) {
         this.checkCatGame();
-        
         if (this.gameboard.A1 === token && this.gameboard.A2 === token && this.gameboard.A3 === token) {
             console.log(`${token} wins!`);
         } else if (this.gameboard.B1 === token && this.gameboard.B2 === token && this.gameboard.B3 === token) {
