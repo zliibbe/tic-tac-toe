@@ -16,13 +16,14 @@
     <body>
         <section class='player-one'>
             <h2>Player 1</h2>
-            <p class='icon-one hidden'>EMOJI</p>
+            <p class='icon-one'>🦉</p>
+            <p class='player-one-wins'>0 wins</p>
         </section>
         
-        <section class = 'gameboard-section'>
+        <section class='gameboard-section'>
             <h1 class="title">Tic Tac Toe</h1>
             <h3 class='hidden'>It's ___'s turn</h3>
-            <article class='gameboard-grid'>
+            <article class='gameboard-grid' id='gameboardGrid'>
                 <div class="grid a1" id="A1"></div>
                 <div class="grid a2" id="A2"></div>
                 <div class="grid a3" id="A3"></div>
@@ -33,11 +34,13 @@
                 <div class="grid c2" id="C2"></div>
                 <div class="grid c3" id="C3"></div>
             </article>
+            <p class='action-message hidden' id='actionMessage'>What Just Happened?</p>
         </section>
 
         <section class='player-two'>
             <h2>Player 2</h2>
-            <p class='icon-two hidden'>EMOJI</p>
+            <p class='icon-two'>🐼</p>
+            <p class='player-two-wins'>0 wins</p>
         </section>
     </body>
 </html>
