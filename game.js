@@ -11,38 +11,37 @@ A way to reset the Game's board to begin a new game
 
 class Game {
     constructor() {
-        this.player1 = new Player('Panda', 'X');
-        this.player2 = new Player('Amelie', 'O');
-        this.playersTurn = 'X';
+        this.player1 = new Player('Amelie', '🦉');
+        this.player2 = new Player('Panda', '🐼');
+        this.playersTurn = this.player1.token;
         this.gameboard = {A1: '', A2: '', A3: '', 
                           B1: '', B2: '', B3: '',
                           C1: '', C2: '', C3: ''};
     }
 
     changePlayersTurn(token) {
-        if (token === 'O') {
-            this.playersTurn = 'X';
+        if (token === this.player2.token) {
+            this.playersTurn = this.player1.token;
         }
-
-        if (token === 'X') {
-            this.playersTurn = 'O';
+        if (token === this.player1.token) {
+            this.playersTurn = this.player2.token;
         }
     }
 
     placeToken(token, placement) {
-        if (token === this.playersTurn && placement){
+        if (token === this.playersTurn && placement) {
             if (this.gameboard[placement] === ''){
                 this.gameboard[placement] = token;
-                console.log(`${token} placed in ${placement}`);
                 this.checkWinConditions(token);
                 this.changePlayersTurn(token);
+                console.log(`${token} placed in ${placement}`);
             } else {
-                console.log('This spot is taken. Please select a different spot.');
+                return ('This spot is taken. Please select a different spot.');
             }
         } else {
-            console.log(`It's not ${token}'s turn!`);
-        } 
-    }
+            return (`It's not ${token}'s turn!`);
+        }
+    } 
 
     checkCatGame() {
         if (this.gameboard.A1 != '' && this.gameboard.A2 != '' && this.gameboard.A3 != '' && 
@@ -79,6 +78,6 @@ class Game {
         this.gameboard = {A1: '', A2: '', A3: '', 
                           B1: '', B2: '', B3: '',
                           C1: '', C2: '', C3: ''};
-        this.playersTurn = 'X';
+        this.playersTurn = this.player1.token;
     }
 }

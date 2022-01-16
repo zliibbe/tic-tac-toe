@@ -11,8 +11,4 @@ class Player {
         this.token = token;
         this.wins = [];
     }
-
-    placeToken() {
-        
-    }
 }
