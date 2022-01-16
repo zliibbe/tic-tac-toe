@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<lang="en">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,20 +14,30 @@
         </style>
     </head>
     <body>
-        <section class>
-            Player 1
+        <section class='player-one'>
+            <h2>Player 1</h2>
+            <p class='icon-one hidden'>EMOJI</p>
         </section>
         
-        <section>
-            <h1>Tic Tac Toe Title</h1>
-
-            <h3>It's ___'s turn</h3>
+        <section class = 'gameboard-section'>
+            <h1 class="title">Tic Tac Toe</h1>
+            <h3 class='hidden'>It's ___'s turn</h3>
+            <article class='gameboard-grid'>
+                <div class="grid a1" id="A1"></div>
+                <div class="grid a2" id="A2"></div>
+                <div class="grid a3" id="A3"></div>
+                <div class="grid b1" id="B1"></div>
+                <div class="grid b2" id="B2"></div>
+                <div class="grid b3" id="B3"></div>
+                <div class="grid c1" id="C1"></div>
+                <div class="grid c2" id="C2"></div>
+                <div class="grid c3" id="C3"></div>
+            </article>
         </section>
 
-        <section>
-            Player 2
+        <section class='player-two'>
+            <h2>Player 2</h2>
+            <p class='icon-two hidden'>EMOJI</p>
         </section>
-
     </body>
-
 </html>
