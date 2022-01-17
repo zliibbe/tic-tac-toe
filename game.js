@@ -1,14 +1,3 @@
-/*
-game.js includes a Game class
-A Game should include:
-Two Player instances
-A way to keep track of the data for the game board
-A way to keep track of which players's turn it currently is
-A way to check the Game's board data for win conditions
-A way to detect when a game is a draw{Cat Game} (no one has won)
-A way to reset the Game's board to begin a new game
-*/
-
 class Game {
     constructor() {
         this.player1 = new Player('Amelie', '🦉');
@@ -39,11 +28,17 @@ class Game {
             console.log('placeToken is running')
             // debugger
             if (this.gameboard[placement] === ''){
+                console.log('first if of placeToken is running');
+                // debugger;
                 this.gameboard[placement] = token;
-                this.checkWinConditions(token);
-                this.changePlayersTurn(token);
+                console.log(`${this.checkWinConditions(token)}`)
+                if(this.checkWinConditions(token) === `${token} wins!`) {
+                    return
+                };
+                // this.changePlayersTurn(token);
                 this.moves++;
                 console.log(`${token} placed in ${placement}`);
+                return `${token}`
             } else {
                 return ('This spot is taken. Please select a different spot.');
             }
@@ -62,45 +57,45 @@ class Game {
             }
         }
         return catGame;
-    }
+    } //return catGame; catGame is false, unless conditions for draw are met
 
-    checkRows(token) {
-        if (this.gameboard.A1 === token && this.gameboard.A2 === token && this.gameboard.A3 === token) {
-            console.log(`${token} wins!`);
-            this.winBoolean = true;
-            //add to winner's (X/O) array
-        } else if (this.gameboard.B1 === token && this.gameboard.B2 === token && this.gameboard.B3 === token) {
-            console.log(`${token} wins!`);
-            this.winBoolean = true;
-        } else if (this.gameboard.C1 === token && this.gameboard.C2 === token && this.gameboard.C3 === token) {
-            this.winBoolean = true;
-            console.log(`${token} wins!`);
-        }
-    }
+    // checkRows(token) {
+    //     if (this.gameboard.A1 === token && this.gameboard.A2 === token && this.gameboard.A3 === token) {
+    //         console.log(`${token} wins!`);
+    //         this.winBoolean = true;
+    //         //add to winner's (X/O) array
+    //     } else if (this.gameboard.B1 === token && this.gameboard.B2 === token && this.gameboard.B3 === token) {
+    //         console.log(`${token} wins!`);
+    //         this.winBoolean = true;
+    //     } else if (this.gameboard.C1 === token && this.gameboard.C2 === token && this.gameboard.C3 === token) {
+    //         this.winBoolean = true;
+    //         console.log(`${token} wins!`);
+    //     }
+    // } //checks board rows for 
 
-    checkColumns(token) {
-        if (this.gameboard.A1 === token && this.gameboard.B1 === token && this.gameboard.C1 === token) {
-            console.log(`${token} wins!`);
-            this.winBoolean = true;
-        } else if (this.gameboard.A2 === token && this.gameboard.B2 === token && this.gameboard.C2 === token) {
-            console.log(`${token} wins!`);
-            this.winBoolean = true;
-        } else if (this.gameboard.A3 === token && this.gameboard.B3 === token && this.gameboard.C3 === token) {
-            console.log(`${token} wins!`);
-            this.winBoolean = true;
-        }
-    }
+    // checkColumns(token) {
+    //     if (this.gameboard.A1 === token && this.gameboard.B1 === token && this.gameboard.C1 === token) {
+    //         console.log(`${token} wins!`);
+    //         this.winBoolean = true;
+    //     } else if (this.gameboard.A2 === token && this.gameboard.B2 === token && this.gameboard.C2 === token) {
+    //         console.log(`${token} wins!`);
+    //         this.winBoolean = true;
+    //     } else if (this.gameboard.A3 === token && this.gameboard.B3 === token && this.gameboard.C3 === token) {
+    //         console.log(`${token} wins!`);
+    //         this.winBoolean = true;
+    //     }
+    // }
 
-    checkDiagonals(token) {
-        if (this.gameboard.A1 === token && this.gameboard.B2 === token && this.gameboard.C3 === token) {
-            console.log(`${token} wins!`);
-            this.winBoolean = true;
-        }
-        if (this.gameboard.A3 === token && this.gameboard.B2 === token && this.gameboard.C1 === token) {
-            console.log(`${token} wins!`);
-            this.winBoolean = true;
-        }
-    }
+    // checkDiagonals(token) {
+    //     if (this.gameboard.A1 === token && this.gameboard.B2 === token && this.gameboard.C3 === token) {
+    //         console.log(`${token} wins!`);
+    //         // this.winBoolean = true;
+    //     }
+    //     if (this.gameboard.A3 === token && this.gameboard.B2 === token && this.gameboard.C1 === token) {
+    //         console.log(`${token} wins!`);
+    //         // this.winBoolean = true;
+    //     }
+    // }
 
     checkWinConditions(token) {
         var catGame = this.checkCatGame()
@@ -108,20 +103,53 @@ class Game {
             return 'cat game';
         }
 
-        if (catGame === false && this.moves >= 5){
-            this.checkRows(token);
-            this.checkColumns(token);
-            this.checkDiagonals(token);
-            this.catGame = true;
-            console.log('It\'s a draw! game!')
-        }
-
-        if (this.winBoolean === true) {
-            this.gameWinner = true;
-            // return this.gameWinner;
+        if (catGame === false && this.moves >= 5 ){
+            console.log(`${token}large if else if block of checkWinConditions is running`)
+            if (this.gameboard.A1 === this.playersTurn && this.playersTurn === token && this.playersTurn === token) {
+                console.log('I see A1, A2, and A3 win!')
+                return `${token} wins!`;
+            } else if (this.gameboard.B1 === token && this.gameboard.B2 === token && this.gameboard.B3 === token) {
+                console.log(`${token} wins!`);
+            } else if (this.gameboard.C1 === token && this.gameboard.C2 === token && this.gameboard.C3 === token) {
+                console.log(`${token} wins!`);
+            } else if (this.gameboard.A1 === token && this.gameboard.B1 === token && this.gameboard.C1 === token) {
+                console.log(`${token} wins!`);
+            } else if (this.gameboard.A2 === token && this.gameboard.B2 === token && this.gameboard.C2 === token) {
+                console.log(`${token} wins!`);
+            } else if (this.gameboard.A3 === token && this.gameboard.B3 === token && this.gameboard.C3 === token) {
+                console.log(`${token} wins!`);
+            } else if (this.gameboard.A1 === token && this.gameboard.B2 === token && this.gameboard.C3 === token) {
+                console.log(`${token} wins!`);
+            } else if (this.gameboard.A3 === token && this.gameboard.B2 === token && this.gameboard.C1 === token) {
+                console.log(`${token} wins!`);
+            } else {
+                console.log('final if of BIG block');
+                return `CWCond didn't flag a winner ${token}`;
+                // debugger;
+                // console.log(`Sorry, ${token} is not a winner yet...`)
+            }
         }
     }
-    
+    // checkWinConditions(token) {
+    //     var catGame = this.checkCatGame()
+    //     if (catGame === true){
+    //         return 'cat game';
+    //     }
+
+    //     if (catGame === false && this.moves >= 5 ){
+    //         this.checkRows(token);
+    //         this.checkColumns(token);
+    //         this.checkDiagonals(token);
+    //         catGame = true;
+    //         console.log('It\'s a draw game!!!')
+    //     }
+
+    //     if (this.winBoolean === true) {
+    //         this.gameWinner = true;
+    //         // return this.gameWinner;
+    //     }
+    // }
+   
     resetGame() {
         this.gameboard = {A1: '', A2: '', A3: '', 
                           B1: '', B2: '', B3: '',
