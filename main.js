@@ -35,14 +35,14 @@ function hide(element) {
 
 //click on ID, take ID name and use that as a calling in data Model
 //e.target.id === 
-//var x = e.target.id -- B2
+
 function updateDOM(location) {//DOM should be be
     location.innerText = game.playersTurn;//DOM
                          game.gameboard.location//from data model
 }
 
 function checkCatGame () {
-    if (game.checkWinConditions(game.playersTurn) === 'cat game') {
+    if (game.checkCatGame() === true) {
         hide(playersTurnMessage);
         actionMessage.innerText = 'It\'s a draw!'            
         show(actionMessage);
@@ -53,11 +53,11 @@ function checkCatGame () {
 }
 
 function checkWin() {
-    //game.players
     game.checkWinConditions(game.playersTurn)
     var whoWon = game.checkWinConditions(game.playersTurn)
     console.log(game.checkWinConditions(game.playersTurn))
-    if (whoWon === '🦉 wins!'){
+    
+    if (game.player1.hasWon === true){
         hide(playersTurnMessage);//hide who's turn it is on the DOM
         actionMessage.innerText = '🦉 Wins!' //DOM display
         player1wins.push(1); //update Data Model
@@ -66,20 +66,21 @@ function checkWin() {
          //update DOM
         show(playersTurnMessage);
         
-        triggerResetData();//create 3 sec pause?
+        triggerResetData();
         triggerResetDOM();
         show(actionMessage);
        // game.resetGame;//reset data model
        // resetGame()//reset DOM
 
     }
-    if (whoWon === '🐼 wins!') {
+    if (game.player2.hasWon === true) {
         hide(playersTurnMessage);
         actionMessage.innerText = '🐼 Wins!'
         player2wins.push(1); 
         playerTwoWins.innerText = `${player2wins.length} wins`          
         console.log('1 win added to 🐼\'s array')
-        triggerResetData();//create 3 sec pause?
+        show(playersTurnMessage);
+        triggerResetData();
         triggerResetDOM();
         show(actionMessage);
         //game.resetGame;//reset data model
@@ -88,41 +89,46 @@ function checkWin() {
 }
 
 function triggerResetData() {
-    var resetDataModel = setTimeout(game.resetGame, 3000)
+    var resetDataModel = setTimeout(game.resetGame, 2000)
     return resetDataModel;
 }
 
 function triggerResetDOM() {
-    var resetDOM = setTimeout(resetGame, 3000);
+    var resetDOM = setTimeout(resetGame, 2000);
     // var resetDataModel = setTimeout(game.resetGame, 3000)
     // console.log('hello')
     return resetDOM;
+    show(playersTurnMessage);
 }
 
+//delete this function
 function resetGame() {
+    // var newPlayerGoesFirst = game.changePlayersTurn(game.playersTurn)//do I need this for switching player's turn each round?
     game.resetGame();//reset game data model
     gameboardGrid.innerHTML = '<div class="grid a1" id="A1"></div><div class="grid a2" id="A2"></div><div class="grid a3" id="A3"></div><div class="grid b1" id="B1"></div><div class="grid b2" id="B2"></div><div class="grid b3" id="B3"></div><div class="grid c1" id="C1"></div><div class="grid c2" id="C2"></div><div class="grid c3" id="C3"></div>' //reset DOM view
     hide(actionMessage);
+    game.changePlayersTurn(game.playersTurn);
+    playersTurnMessage.innerText = `It's ${game.playersTurn}'s turn.`;
+    show(playersTurnMessage);
 }
 
 //order of operations
 function showInGrid(e) {
     if (e.target.innerText === '') {
         var location = e.target;
-        // place token in datamodel
-        game.placeToken(game.playersTurn, location.id);
-        // place token on page (DOM)
-        updateDOM(location);
+        
+        game.placeToken(game.playersTurn, location.id);// place token in datamodel
+        
+        updateDOM(location);// place token on page (DOM)
         
         // changePlayersTurn(game.playersTurn);
         // placeTokeninData(game.playersTurn, e.target.id);
-        // console.log(game.gameboard);
         
         checkCatGame();      
         
         checkWin();
 
-        game.changePlayersTurn(game.playersTurn);
+        game.changePlayersTurn(game.playersTurn);//changes players turn (binary)
         playersTurnMessage.innerText = `It's ${game.playersTurn}'s turn.`;
     }
 }
