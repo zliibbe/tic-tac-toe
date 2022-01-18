@@ -8,12 +8,8 @@ var playersTurnMessage = document.querySelector('#playersTurnMsg');
 var playerOneWins = document.querySelector('#playerOneWins');
 var playerTwoWins = document.querySelector('#playerTwoWins');
 
-//data ##################################################
-var player1wins = game.player1.wins;//blank array in data model
-var player2wins  = game.player2.wins;//blank array  in data model
-
 //eventListeners ########################################
-gameboardGrid.addEventListener('click', showInGrid);
+gameboardGrid.addEventListener('click', orderOfOperationsOn);
 
 //functions #############################################
 function show(element) {
@@ -24,29 +20,16 @@ function hide(element) {
     element.classList.add('hidden');
 }
 
-// function changePlayersTurn() {
-//     game.changePlayersTurn(game.playersTurn);
-// }
-
-
-// function placeTokeninData(token, placementKey) {
-//     game.placeToken(token, placementKey)
-// }
-
-//click on ID, take ID name and use that as a calling in data Model
-//e.target.id === 
-
-function updateDOM(location) {//DOM should be be
-    location.innerText = game.playersTurn;//DOM
-                         game.gameboard.location//from data model
+function updateDOM(location) {
+    location.innerText = game.playersTurn;
 }
 
-function checkCatGame () {
-    if (game.checkCatGame() === true) {
+function checkDrawGame () {
+    if (game.checkDrawGame() === true) {
         hide(playersTurnMessage);
         actionMessage.innerText = 'It\'s a draw!'            
         show(actionMessage);
-        triggerResetData();//create 3 sec pause?
+        triggerResetDataModel();
         triggerResetDOM();
         show.playersTurnMessage;
     }
@@ -54,57 +37,40 @@ function checkCatGame () {
 
 function checkWin() {
     game.checkWinConditions(game.playersTurn)
-    var whoWon = game.checkWinConditions(game.playersTurn)
-    console.log(game.checkWinConditions(game.playersTurn))
-    
-    if (game.player1.hasWon === true){
-        hide(playersTurnMessage);//hide who's turn it is on the DOM
-        actionMessage.innerText = '🦉 Wins!' //DOM display
-        player1wins.push(1); //update Data Model
-        playerOneWins.innerText = `${player1wins.length} wins` //update DOM
-        console.log('1 win added to 🦉\'s array')
-         //update DOM
-        show(playersTurnMessage);
+    if (game.player1.hasWon === true || game.player2.hasWon === true) {  
         
-        triggerResetData();
-        triggerResetDOM();
-        show(actionMessage);
-       // game.resetGame;//reset data model
-       // resetGame()//reset DOM
+        hide(playersTurnMessage);    
+        
+        if (game.player1.hasWon === true){
+            actionMessage.innerText = '🦉 Wins!';
+            game.player1.wins.push(1);
+            playerOneWins.innerText = `${game.player1.wins.length} wins`;
+        }
+        if (game.player2.hasWon === true) {    
+            actionMessage.innerText = '🐼 Wins!';
+            game.player2.wins.push(1); 
+            playerTwoWins.innerText = `${game.player2.wins.length} wins`;
+        }
 
-    }
-    if (game.player2.hasWon === true) {
-        hide(playersTurnMessage);
-        actionMessage.innerText = '🐼 Wins!'
-        player2wins.push(1); 
-        playerTwoWins.innerText = `${player2wins.length} wins`          
-        console.log('1 win added to 🐼\'s array')
         show(playersTurnMessage);
-        triggerResetData();
+        triggerResetDataModel();
         triggerResetDOM();
         show(actionMessage);
-        //game.resetGame;//reset data model
-        //resetGame()//reset DOM
-    }
+    }      
 }
 
-function triggerResetData() {
-    var resetDataModel = setTimeout(game.resetGame, 2000)
+function triggerResetDataModel() {
+    var resetDataModel = setTimeout(game.resetGameData, 1500)
     return resetDataModel;
 }
 
 function triggerResetDOM() {
-    var resetDOM = setTimeout(resetGame, 2000);
-    // var resetDataModel = setTimeout(game.resetGame, 3000)
-    // console.log('hello')
+    var resetDOM = setTimeout(resetGameOnPage, 1500);
     return resetDOM;
-    show(playersTurnMessage);
 }
 
-//delete this function
-function resetGame() {
-    // var newPlayerGoesFirst = game.changePlayersTurn(game.playersTurn)//do I need this for switching player's turn each round?
-    game.resetGame();//reset game data model
+function resetGameOnPage() {
+    game.resetGameData();
     gameboardGrid.innerHTML = '<div class="grid a1" id="A1"></div><div class="grid a2" id="A2"></div><div class="grid a3" id="A3"></div><div class="grid b1" id="B1"></div><div class="grid b2" id="B2"></div><div class="grid b3" id="B3"></div><div class="grid c1" id="C1"></div><div class="grid c2" id="C2"></div><div class="grid c3" id="C3"></div>' //reset DOM view
     hide(actionMessage);
     game.changePlayersTurn(game.playersTurn);
@@ -112,23 +78,13 @@ function resetGame() {
     show(playersTurnMessage);
 }
 
-//order of operations
-function showInGrid(e) {
-    if (e.target.innerText === '') {
-        var location = e.target;
-        
-        game.placeToken(game.playersTurn, location.id);// place token in datamodel
-        
-        updateDOM(location);// place token on page (DOM)
-        
-        // changePlayersTurn(game.playersTurn);
-        // placeTokeninData(game.playersTurn, e.target.id);
-        
-        checkCatGame();      
-        
+function orderOfOperationsOn(e) {
+    if (e.target.innerText === '') {        
+        game.placeToken(game.playersTurn, e.target.id);
+        updateDOM(e.target);
+        checkDrawGame();      
         checkWin();
-
-        game.changePlayersTurn(game.playersTurn);//changes players turn (binary)
+        game.changePlayersTurn(game.playersTurn);
         playersTurnMessage.innerText = `It's ${game.playersTurn}'s turn.`;
     }
 }
