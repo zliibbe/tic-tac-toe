@@ -1,3 +1,119 @@
 * {
     font-family: 'Lato', sans-serif;
 }
+
+/* position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px; */
+
+
+body {
+    margin: 0;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    display: flex; 
+}
+
+.hidden {
+    visibility: hidden;
+  }
+
+h1, h2, h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+}
+
+.player-one {
+    justify-content: flex-start;
+    width: 30vw;
+    align-items: flex-start;
+    background: linear-gradient(-40deg, #001219, #005f73, #0a9396, #94d2bd, #e9d8a6, #ee9b00, #ca6702, #bb3e03, #ae2012, #9b2226);
+}
+
+.player-two {
+    width: 30vw;
+    align-items: flex-end;
+    background: linear-gradient(40deg, #001219, #005f73, #0a9396, #94d2bd, #e9d8a6, #ee9b00, #ca6702, #bb3e03, #ae2012, #9b2226);
+}
+
+.icon-one, .icon-two {
+    font-size: 3em;
+    height: 20vh;
+}
+
+.gameboard-section {
+    display: flex;
+    width: 40vw;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+     /* background: linear-gradient(90deg, #0466c8, #0353a4, #023e7d, #002855, #001845, #001233, #33415c, #5c677d, #7d8597, #979dac) */
+    background: linear-gradient(0deg,#001219, #005f73, #0a9396, #94d2bd, #e9d8a6, #ee9b00, #ca6702);
+}
+
+.gameboard-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;  
+}
+
+.grid {
+    width: 33%;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.a1 {
+     /* border-right: 1px solid orange; */
+     /* border-bottom: 1px solid orange; */
+}
+
+.a2 {
+    border-left: 1px solid #000000;    
+    border-right: 1px solid #000000;
+}
+
+.a3 {
+    /* border-right: 1px solid orange; */
+    /* border-bottom: 1px solid orange; */
+}
+
+.b1 {
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;;
+}
+
+.b2 {
+    border: 1px solid #000000;
+}
+
+.b3 {
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+
+.c1 {
+    /* border-right: 1px solid orange; */
+}
+
+.c2 {
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
+}
+
+.c3 {
+    /* border-top: 1px solid orange; */
+    /* border-right: 1px solid orange; */
+}

@@ -1,11 +1,14 @@
 /*
+A Game should include:
+Two Player instances
+
 must include constructor with properties:
 id, token, wins */
 
 class Player {
-    constructor(token) {
-        this.id = Date.now();
-        this.token = token;//emoji? 
+    constructor(name, token) {
+        this.id = name 
+        this.token = token;
         this.wins = [];
     }
 }
