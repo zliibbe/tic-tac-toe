@@ -48,7 +48,6 @@ A link will be added here to access the site once the repo is no longer private.
 <img width="919" alt="Screen Shot 2022-01-18 at 19 29 58" src="https://user-images.githubusercontent.com/63659270/150052486-83a20d50-15ee-4ab5-b489-163c6c4e3a52.png">
 
 ### Page during a Draw
-img width="908" alt="Screen Shot 2022-01-18 at 19 53 26" src="https://user-images.githubusercontent.com/63659270/150055067-d449324a-4ca0-4652-944c-4abb2529867a.png">
+<img width="908" alt="Screen Shot 2022-01-18 at 19 53 26" src="https://user-images.githubusercontent.com/63659270/150055067-d449324a-4ca0-4652-944c-4abb2529867a.png">
 
 ---
-<
