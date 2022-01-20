@@ -24,7 +24,7 @@ A website where you can play the game of Tic Tac Toe. There are two pre-defined 
 ---
 ## Deployment
 
-A link will be added here to access the site once the repo is no longer private. It is private to maintain academic honesty.
+Check out the site [here](https://zliibbe.github.io/tic-tac-toe/). 
 
 ---
 ## Features
