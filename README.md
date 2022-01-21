@@ -51,3 +51,10 @@ Check out the site [here](https://zliibbe.github.io/tic-tac-toe/).
 <img width="908" alt="Screen Shot 2022-01-18 at 19 53 26" src="https://user-images.githubusercontent.com/63659270/150055067-d449324a-4ca0-4652-944c-4abb2529867a.png">
 
 ---
+
+##Future Work to be Done
+
+- [ ] Blocking Clicks on board following a win
+- [ ] More Mobile-responsive design using Media Queries in CSS
+- [ ] Update CSS so squares indicate where mouse is over board
+- [ ] Refactor code using different logic (e.g. foreach, switch)
