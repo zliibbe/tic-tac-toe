@@ -1,18 +1,18 @@
 # Tic Tac Toe
-
-## Project Description
 ---
+## Project Description
+
 A website where you can play the game of Tic Tac Toe. There are two pre-defined players & icons. Wins for each player will be kept track of and if it is a draw game the board will simply reset. 
 
 ## Contributors
----
+
   * Zach Liibbe 
     - GitHub Profile: [@zliibbe](http://github.com/zliibbe)
-  ---
+
   * Caleb Haizlett
     - GitHub Profile: [@CHaiz15](http://github.com/CHaiz15)
     - Assisted with all PR reviews.
-   ---
+   
    * Taylor Want 
      - Project Manager from Turing School of Software & Design
      - GitHub Profile: [@twant](https://github.com/twant)
@@ -21,12 +21,12 @@ A website where you can play the game of Tic Tac Toe. There are two pre-defined 
 ## Languages Used
  Tic Tac Toe was created per this project [spec](https://frontend.turing.edu/projects/module-1/tic-tac-toe-solo.html). Functionality is handled primarily by _Javascript_. Display and look of the page handled primarily by _HTML_ and _CSS_.
 
----
+
 ## Deployment
 
 Check out the site [here](https://zliibbe.github.io/tic-tac-toe/). 
 
----
+
 ## Features
 
 - [x] Ability to play Tic Tac Toe turn by turn.
@@ -35,7 +35,7 @@ Check out the site [here](https://zliibbe.github.io/tic-tac-toe/).
 - [x] Page will keep track of both Player 1 and Player 2's wins.
 - [x] Each game starts with the player who did not go first for the previous game.
 
----
+
 ## Project Gallery
 
 ### Page on Load
