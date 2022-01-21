@@ -52,7 +52,7 @@ Check out the site [here](https://zliibbe.github.io/tic-tac-toe/).
 
 ---
 
-##Future Work to be Done
+## Future Work to be Done
 
 - [ ] Blocking Clicks on board following a win
 - [ ] More Mobile-responsive design using Media Queries in CSS
