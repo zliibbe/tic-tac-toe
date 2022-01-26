@@ -35,20 +35,19 @@ p {
 
 .player-one {
     justify-content: flex-start;
-    width: 30vw;
+    width: 30%;
     align-items: flex-start;
     background: linear-gradient(-40deg, #001219, #005f73, #0a9396, #94d2bd, #e9d8a6, #ee9b00, #ca6702, #bb3e03, #ae2012, #9b2226);
 }
 
 .player-two {
-    width: 30vw;
+    width: 30%;
     align-items: flex-end;
     background: linear-gradient(40deg, #001219, #005f73, #0a9396, #94d2bd, #e9d8a6, #ee9b00, #ca6702, #bb3e03, #ae2012, #9b2226);
 }
 
 .icon-one, .icon-two {
     font-size: 5em;
-    height: 20vh;
 }
 
 .gameboard-section {
@@ -103,3 +102,64 @@ p {
     border-right: 1px solid #000000;
     border-left: 1px solid #000000;
 }
+
+@media  screen and (max-width: 620px){
+    body {
+        display: flex; 
+        flex-direction: column;
+        justify-content: space-between;
+    }
+  
+    h1 {
+        font-size: rem;
+    }
+    h2 h3 {
+        font-size: .5rem;
+        margin: 2em;
+    }
+
+    .player-one {
+        display: flex; 
+        justify-content: space-evenly;  
+        flex-direction: row;
+        height: 75%;
+        width: 100%;
+        padding: 1em;
+        background: linear-gradient(123deg, #001219, #005f73, #0a9396, #94d2bd, #e9d8a6, #ee9b00, #ca6702, #bb3e03, #ae2012, #9b2226);
+    }
+
+    .player-two {
+        display: flex; 
+        justify-content: space-evenly;
+        flex-direction: row;
+        height: 75%;
+        width: 100%;
+        padding: 1em;
+        background: linear-gradient(57deg, #001219, #005f73, #0a9396, #94d2bd, #e9d8a6, #ee9b00, #ca6702, #bb3e03, #ae2012, #9b2226);
+    }
+
+    .gameboard-section {
+        display: flex;
+        width: 105%;
+        flex-direction: column;
+        flex-wrap: wrap;
+        background: linear-gradient(90deg, #005f73, #0a9396, #94d2bd, #e9d8a6, #ee9b00, #ca6702, #bb3e03, #ae2012, #9b2226);
+    }
+
+    .icon-one, .icon-two {
+        font-size: 3.3em;
+        margin: 0;
+    }
+    
+    .gameboard-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 60%;    
+    }
+
+    .grid {
+        font-size: 3.3em;
+    }
+   
+  } 
