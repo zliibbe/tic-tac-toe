@@ -50,34 +50,35 @@ class Game {
     }
 
     checkWinConditions(token) {
-           if (this.player1.hasWon === false && this.player2.hasWon === false) {
-                if (this.gameboard.A1 === token && this.gameboard.A2 === token && this.gameboard.A3 === token) {
+        
+             switch (this.player1.hasWon === false && this.player2.hasWon === false) {
+                case this.gameboard.A1 === token && this.gameboard.A2 === token && this.gameboard.A3 === token:
                     this.determineWhoHasWon(token);
-                } 
-                if (this.gameboard.B1 === token && this.gameboard.B2 === token && this.gameboard.B3 === token) {
+                                  
+                case this.gameboard.B1 === token && this.gameboard.B2 === token && this.gameboard.B3 === token:
+                    this.determineWhoHasWon(token);              
+              
+                case this.gameboard.C1 === token && this.gameboard.C2 === token && this.gameboard.C3 === token:
                     this.determineWhoHasWon(token);
-                } 
-                if (this.gameboard.C1 === token && this.gameboard.C2 === token && this.gameboard.C3 === token) {
+              
+                case this.gameboard.A1 === token && this.gameboard.B1 === token && this.gameboard.C1 === token: 
                     this.determineWhoHasWon(token);
-                } 
-                if (this.gameboard.A1 === token && this.gameboard.B1 === token && this.gameboard.C1 === token) {
+             
+                case this.gameboard.A2 === token && this.gameboard.B2 === token && this.gameboard.C2 === token:
                     this.determineWhoHasWon(token);
-                } 
-                if (this.gameboard.A2 === token && this.gameboard.B2 === token && this.gameboard.C2 === token) {
+                
+                case this.gameboard.A3 === token && this.gameboard.B3 === token && this.gameboard.C3 === token:
                     this.determineWhoHasWon(token);
-                } 
-                if (this.gameboard.A3 === token && this.gameboard.B3 === token && this.gameboard.C3 === token) {
+                 
+                case this.gameboard.A1 === token && this.gameboard.B2 === token && this.gameboard.C3 === token:
                     this.determineWhoHasWon(token);
-                } 
-                if (this.gameboard.A1 === token && this.gameboard.B2 === token && this.gameboard.C3 === token) {
+             
+                case this.gameboard.A3 === token && this.gameboard.B2 === token && this.gameboard.C1 === token:
                     this.determineWhoHasWon(token);
-                } 
-                if (this.gameboard.A3 === token && this.gameboard.B2 === token && this.gameboard.C1 === token) {
-                    this.determineWhoHasWon(token);
-                } 
-        }
-    }
-    
+     }
+ }
+
+
     resetGameData() {
         this.gameboard = {A1: '', A2: '', A3: '', 
                           B1: '', B2: '', B3: '',
